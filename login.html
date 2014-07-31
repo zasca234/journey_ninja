@@ -1,19 +1,3 @@
-<?php
-$checksignedin = checkifloggedin();
-function checkifloggedin()
-{
-if(isset($_COOKIE['user']))
- { 
-return "signedin";
-}
-else {
-return "notsignedin";
-}
-}
-if ($checkedsignedin !== "notsignedin"){
-header("Location: dash.php");
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,13 +6,15 @@ header("Location: dash.php");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>JourneyNinja</title>
+
+    <title>JourneyNinja LogIn</title>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
     <!-- Bootstrap core CSS -->
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Custom styles for this template -->
-    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -38,21 +24,15 @@ header("Location: dash.php");
   <body>
 
     <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-		  <li><a href="login.html">Sign in</a></li>
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-        <h3 class="text-muted">Journey Ninja</h3>
-      </div>
-      <div class="jumbotron">
-        <h1>Journey Ninja</h1>
-        <p class="lead">Unifying travel planning</p>
-        <p><a class="btn btn-lg btn-success" href="signup.html" role="button">Sign up today</a></p>
-      <div class="footer">
-        <p>&copy; Journey Ninja 2014</p>
-      </div>
+
+      <form class="form-signin" role="form" method="post" action="checklogin.php">
+        <h2 class="form-signin-heading">Sign in to Journey Ninja</h2>
+        <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
+        <br>
+		<input type="password" name="password" class="form-control" placeholder="Password" required>
+        <br>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
 
     </div> <!-- /container -->
 
