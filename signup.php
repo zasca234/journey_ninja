@@ -1,9 +1,13 @@
 <?php
+//Variables to store the login details
 $email = $_POST["email"];
 $password1 = $_POST["password1"];
 $password2 = $_POST["password2"];
+//An if statement to compare password to see if they match
 if($password1 == $password2){
+	//Stores the encryption key
 $key = "INSERTKEYHERE";
+//Encrypts the verified password
 $encrypted = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5($key), $password, MCRYPT_MODE_CBC, md5(md5($key))));
 $json = file_get_contents("users.json");
 $json_decoded = json_decode($json, true);
@@ -14,7 +18,7 @@ else {
 $json_decoded[$usrname] = $encrypted;
 $new_json = json_encode($json_decoded);
 $Handle = fopen("users.json", 'w');
-fwrite($Handle, $new_json); 
+fwrite($Handle, $new_json);
 fclose($Handle);
 echo "Sign up successful";
 }
