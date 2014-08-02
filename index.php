@@ -1,17 +1,6 @@
 <?php
-$checksignedin = checkifloggedin();
-function checkifloggedin()
-{
-if(isset($_COOKIE['user']))
- { 
-return "signedin";
-}
-else {
-return "notsignedin";
-}
-}
-if ($checkedsignedin !== "notsignedin"){
-header("Location: dash.php");
+if (isset($_COOKIE['user'])){
+header("Location: compare.html");
 }
 ?>
 <!DOCTYPE html>
@@ -59,6 +48,7 @@ header("Location: dash.php");
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
+	<script type="text/javascript" src="main.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <!-- Placed at the end of the document so the pages load faster -->
   </body>
