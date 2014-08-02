@@ -7,18 +7,18 @@ var marker_locations = new Array();
 var map;
 
 function initialize() {
-	  var centrepoint = new google.maps.LatLng(0.0000000, 0.0000000);
-	var mapOptions = {
-		zoom : 1,
-		center : centrepoint
-	}
-	map = new google.maps.Map(document.getElementById('map'), mapOptions);
+var centrepoint = new google.maps.LatLng(0.0000000, 0.0000000);
+var mapOptions = {
+zoom : 1,
+center : centrepoint
+}
+map = new google.maps.Map(document.getElementById('map'), mapOptions);
 google.maps.event.addListener(map, 'click', addPoint);
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
 function addPoint(event) {
-	clearMarkers();
+clearMarkers();
     var marker = new google.maps.Marker({
         position: event.latLng,
         map: map,
@@ -39,9 +39,9 @@ google.maps.event.addListener(marker, 'dragend', function() {
 
 //hides the last placed marker
 function clearMarkers() {
-	for (i in markers) {
-		markers[i].setMap(null);
-	}
+for (i in markers) {
+markers[i].setMap(null);
+}
 }
 
 
@@ -49,7 +49,7 @@ function clearMarkers() {
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition,showError);
-    } else { 
+    } else {
         alert("Geolocation is not supported by this browser.");
     }
 }
@@ -57,7 +57,13 @@ function getLocation() {
 function showPosition(position) {
     var startPoint = [position.coords.latitude, position.coords.longitude];
     console.log("returned " + startPoint[0] + " " + startPoint[1]);
+<<<<<<< HEAD
 	document.getElementById("coords").value = startPoint[0] + "," + startPoint[1];
+=======
+document.getElementById("coords").value = startPoint[0] + "," + startPoint[1];
+document.getElementById("coords").innerHTML = startPoint[0] + "," + startPoint[1];
+
+>>>>>>> origin/master
 }
 
 function showError(error) {
