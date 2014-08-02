@@ -33,10 +33,17 @@
 </div>
 <div class="jumbotron">
 <h1>Plan your journey</h1>
+<form role="form" method="post" action="compare.php">
 <button type="button" class="btn btn-primary" onclick="getLocation()">Travel from current location</button>
 <h6>or search a location.</h6>
+<input type="hidden" name="coords_geo" id="coords" value="" />
+<input class="form-control" id="Input" name="address" type="text" placeholder="Location e.g: 221b Baker Street, London" >
+<br>
+<button type="submit" class="btn btn-lg btn-success">Next</button>
 </form>
-<input class="form-control" id="Input" type="text" placeholder="Location e.g: London" >
+<div id="map">
+</div>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAn7dfpi_3UMRie8tNZdpHzuCYL7Dq1gXI"></script>
 <div class="footer">
 <p>&copy; Journey Ninja 2014</p>
 </div>
