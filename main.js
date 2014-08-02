@@ -1,8 +1,10 @@
-var startPoint;
+var startPoint = new Array();
 var endPoint;
 var mapOptions;
 var markers = new Array();
-var marker_locations = new Array();
+var marker;
+var counter = -1;
+var unSplit;
 
 var map;
 
@@ -18,15 +20,20 @@ google.maps.event.addListener(map, 'click', addPoint);
 google.maps.event.addDomListener(window, 'load', initialize);
 
 function addPoint(event) {
+	counter++;
 clearMarkers();
     var marker = new google.maps.Marker({
         position: event.latLng,
         map: map,
         draggable: true
     });
-marker_locations.push(event.latLng);
-console.log(marker_locations);
 markers.push(marker);
+unSplit = markers[counter].getPosition().toString();
+var split = unSplit.split(",");
+startPoint[0] = split[0];
+startPoint[1] = split[1];
+document.getElementById("coordslat").value = startPoint[0].slice(1);
+document.getElementById("coordslng").value = startPoint[1].slice(")", -1);
 google.maps.event.addListener(marker, 'click', function() {
         marker.setMap(null);
         for (var i = 0, I = markers.length; i < I && markers[i] != marker; ++i);
@@ -57,13 +64,9 @@ function getLocation() {
 function showPosition(position) {
     var startPoint = [position.coords.latitude, position.coords.longitude];
     console.log("returned " + startPoint[0] + " " + startPoint[1]);
-<<<<<<< HEAD
-	document.getElementById("coords").value = startPoint[0] + "," + startPoint[1];
-=======
 document.getElementById("coords").value = startPoint[0] + "," + startPoint[1];
 document.getElementById("coords").innerHTML = startPoint[0] + "," + startPoint[1];
 
->>>>>>> origin/master
 }
 
 function showError(error) {
