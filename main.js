@@ -5,10 +5,8 @@ var markers = new Array();
 var marker;
 var counter = -1;
 var unSplit;
-
 var map;
-
-function initialize() {
+function initialize(lat,lng) {
 var centrepoint = new google.maps.LatLng(0.0000000, 0.0000000);
 var mapOptions = {
 zoom : 1,
@@ -66,6 +64,8 @@ function showPosition(position) {
     console.log("returned " + startPoint[0] + " " + startPoint[1]);
 document.getElementById("coordslat").value = startPoint[0];
 document.getElementById("coordslng").value = startPoint[1];
+initialize(startPoint[0],startPoint[1]);
+map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
 }
 
