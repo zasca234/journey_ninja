@@ -64,8 +64,8 @@ function getLocation() {
 function showPosition(position) {
     var startPoint = [position.coords.latitude, position.coords.longitude];
     console.log("returned " + startPoint[0] + " " + startPoint[1]);
-document.getElementById("coords").value = startPoint[0] + "," + startPoint[1];
-document.getElementById("coords").innerHTML = startPoint[0] + "," + startPoint[1];
+document.getElementById("coordslat").value = startPoint[0];
+document.getElementById("coordslng").value = startPoint[1];
 
 }
 
