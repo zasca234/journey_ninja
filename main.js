@@ -57,7 +57,11 @@ function getLocation() {
 function showPosition(position) {
     var startPoint = [position.coords.latitude, position.coords.longitude];
     console.log("returned " + startPoint[0] + " " + startPoint[1]);
+<<<<<<< HEAD
 	document.getElementById("coords").value = startPoint[0] + "," + startPoint[1];
+=======
+	document.getElementById("coords").innerHTML = startPoint[0] + "," + startPoint[1];
+>>>>>>> origin/master
 }
 
 function showError(error) {
@@ -77,3 +81,9 @@ function showError(error) {
     }
 }
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> origin/master
